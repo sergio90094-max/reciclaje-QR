@@ -2,50 +2,158 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ añadido para móviles -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Caneca Negra</title>
+
 <style>
+
+html, body{
+width:100%;
+height:100%;
+}
+
 body{
 margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#2c3e50,#000);
-color:white;
+font-family:'Segoe UI', Arial;
+background:linear-gradient(135deg,#2b2b2b,#000);
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
-text-align:center;
-animation:fade 1.5s;
 }
+
+.app{
+background:#1c1c1c;
+color:white;
+width:360px;
+height:auto;
+border-radius:25px;
+box-shadow:0 25px 60px rgba(0,0,0,.6);
+overflow:hidden;
+animation:entrada 1s ease;
+}
+
+/* 📱 full screen en celulares */
+@media (max-width:600px){
+.app{
+width:100%;
+height:100vh;
+border-radius:0;
+}
+}
+
+header{
+background:#000;
+padding:20px;
+text-align:center;
+font-size:24px;
+}
+
+.section{padding:18px;}
 
 .card{
-background:rgba(255,255,255,0.15);
-padding:30px;
-border-radius:20px;
-max-width:90%;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
+background:#2d2d2d;
+padding:15px;
+border-radius:15px;
+margin-bottom:12px;
+cursor:pointer;
+transition:.4s;
 }
 
-li{list-style:none;padding:8px;font-size:1.2em;}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(-30px);}
-to{opacity:1;}
+.card:hover{
+transform:translateY(-6px) scale(1.03);
+box-shadow:0 10px 20px rgba(0,0,0,.7);
 }
+
+.info{
+max-height:0;
+overflow:hidden;
+transition:.5s;
+color:#ddd;
+}
+
+.card.active .info{
+max-height:200px;
+margin-top:10px;
+}
+
+button{
+width:100%;
+border:none;
+padding:14px;
+border-radius:12px;
+background:#000;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+border:1px solid #444;
+}
+
+button:hover{
+background:#333;
+transform:scale(1.05);
+}
+
+@keyframes entrada{
+from{opacity:0;transform:translateY(80px)}
+to{opacity:1;transform:translateY(0)}
+}
+
 </style>
 </head>
 
 <body>
-<div class="card">
-<h1>⚫ Caneca Negra</h1>
-<h2>No reciclables</h2>
-<ul>
-<li>🧻 Servilletas sucias</li>
-<li>🍕 Restos de comida</li>
-<li>🩹 Papel contaminado</li>
-<li>🚫 Envolturas sucias</li>
-</ul>
-<p>No se pueden reciclar</p>
+
+<div class="app">
+
+<header>⚫ Caneca Negra</header>
+
+<div class="section">
+
+<div class="card" onclick="toggle(this)">
+🧻 Papel sucio
+<div class="info">
+Servilletas usadas, papel con grasa o comida.
 </div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+🍬 Envolturas
+<div class="info">
+Dulces, snacks, empaques contaminados.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+🗑 Residuos varios
+<div class="info">
+Colillas, icopor sucio, residuos mezclados.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+⚠ Por qué no se reciclan
+<div class="info">
+Están contaminados y no pueden reutilizarse.
+</div>
+</div>
+
+<button onclick="alert('Ahora sé dónde va cada residuo 👍')">
+Entendido
+</button>
+
+</div>
+</div>
+
+<script>
+function toggle(card){
+card.classList.toggle("active");
+}
+</script>
+
 </body>
 </html>
