@@ -2,130 +2,52 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Caneca Verde</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caneca Verde - Reciclables</title>
 <style>
 body{
 margin:0;
-font-family: 'Segoe UI', Arial;
-background: linear-gradient(135deg,#7dff9e,#1f9d55);
-min-height:100vh;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#2ecc71,#27ae60);
+color:white;
 display:flex;
 justify-content:center;
 align-items:center;
-}
-
-.app{
-background:white;
-width:360px;
-border-radius:25px;
-box-shadow:0 25px 60px rgba(0,0,0,.3);
-overflow:hidden;
-animation:entrada 1s ease;
-}
-
-header{
-background:#1f9d55;
-color:white;
-padding:20px;
+min-height:100vh;
 text-align:center;
-font-size:24px;
-}
-
-.section{
-padding:18px;
+animation:fade 1.5s ease;
 }
 
 .card{
-background:#f3f3f3;
-padding:15px;
-border-radius:15px;
-margin-bottom:12px;
-cursor:pointer;
-transition:.4s;
+background:rgba(0,0,0,0.25);
+padding:30px;
+border-radius:20px;
+max-width:90%;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
-.card:hover{
-transform:translateY(-6px) scale(1.03);
-box-shadow:0 10px 20px rgba(0,0,0,.2);
-}
+h1{font-size:2.2em;}
+ul{list-style:none;padding:0;}
+li{padding:8px;font-size:1.2em;}
 
-.info{
-max-height:0;
-overflow:hidden;
-transition:.5s;
-}
-
-.card.active .info{
-max-height:200px;
-margin-top:10px;
-}
-
-button{
-width:100%;
-border:none;
-padding:14px;
-border-radius:12px;
-background:#1f9d55;
-color:white;
-font-size:16px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-background:#157744;
-transform:scale(1.05);
-}
-
-@keyframes entrada{
-from{opacity:0;transform:translateY(80px)}
-to{opacity:1;transform:translateY(0)}
+@keyframes fade{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
 
 <body>
-
-<div class="app">
-
-<header>🟢 Caneca Verde</header>
-
-<div class="section">
-
-<div class="card" onclick="toggle(this)">
-🍎 Residuos orgánicos
-<div class="info">
-Restos de comida, frutas, verduras, hojas secas, cáscaras de huevo.
+<div class="card">
+<h1>🟢 Caneca Verde</h1>
+<h2>Residuos Reciclables</h2>
+<ul>
+<li>♻ Botellas plásticas</li>
+<li>📦 Cartón limpio</li>
+<li>📄 Papel</li>
+<li>🥫 Latas</li>
+</ul>
+<p>Ayudas a cuidar el planeta 🌍</p>
 </div>
-</div>
-
-<div class="card" onclick="toggle(this)">
-🌱 Beneficios
-<div class="info">
-Sirven para hacer compost y cuidar el medio ambiente.
-</div>
-</div>
-
-<div class="card" onclick="toggle(this)">
-❌ No va aquí
-<div class="info">
-Plásticos, metales, vidrio, papel sucio.
-</div>
-</div>
-
-<button onclick="alert('¡Buen trabajo reciclando! 🌍')">
-Aprendí a reciclar
-</button>
-
-</div>
-</div>
-
-<script>
-function toggle(card){
-card.classList.toggle("active");
-}
-</script>
-
 </body>
 </html>
