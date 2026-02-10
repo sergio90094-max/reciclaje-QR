@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Caneca Blanca</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI', Arial;
+background:linear-gradient(135deg,#ffffff,#cfd9df);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.app{
+background:#fff;
+width:360px;
+border-radius:25px;
+box-shadow:0 25px 60px rgba(0,0,0,.3);
+overflow:hidden;
+animation:entrada 1s ease;
+}
+
+header{
+background:#eaeaea;
+color:#222;
+padding:20px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.section{padding:18px;}
+
+.card{
+background:#f4f4f4;
+padding:15px;
+border-radius:15px;
+margin-bottom:12px;
+cursor:pointer;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-6px) scale(1.03);
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.info{
+max-height:0;
+overflow:hidden;
+transition:.5s;
+}
+
+.card.active .info{
+max-height:200px;
+margin-top:10px;
+}
+
+button{
+width:100%;
+border:none;
+padding:14px;
+border-radius:12px;
+background:#999;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#777;
+transform:scale(1.05);
+}
+
+@keyframes entrada{
+from{opacity:0;transform:translateY(80px)}
+to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+<header>⚪ Caneca Blanca</header>
+
+<div class="section">
+
+<div class="card" onclick="toggle(this)">
+📄 Papel y cartón
+<div class="info">
+Cuadernos, cajas limpias, hojas, periódicos.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+🥤 Plásticos
+<div class="info">
+Botellas, envases, tapas limpias.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+🥫 Metales y vidrio
+<div class="info">
+Latas, frascos, botellas de vidrio.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+♻ Beneficios
+<div class="info">
+Se reutilizan para crear nuevos productos y reducir basura.
+</div>
+</div>
+
+<button onclick="alert('¡Reciclar salva el planeta! 🌎')">
+Estoy reciclando bien
+</button>
+
+</div>
+</div>
+
+<script>
+function toggle(card){
+card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
